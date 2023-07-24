@@ -1,4 +1,4 @@
-/* Common Design Patterns */
+/* Design Patterns */
 
 // - Prototypal Inheritance -
 // Recommended method ( Prototypal Inheritance ):
