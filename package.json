@@ -2,7 +2,7 @@
   "name": "backend_notes",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/jakobsym/backend_notes/issues"
   },
-  "homepage": "https://github.com/jakobsym/backend_notes#readme"
+  "homepage": "https://github.com/jakobsym/backend_notes#readme",
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
 }
