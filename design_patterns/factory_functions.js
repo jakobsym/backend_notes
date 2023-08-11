@@ -6,7 +6,7 @@ const personFactory = (name, age) => {
     return { name, age, sayHello };
   };
   
-const henry = personFactory('henry', 27);
+const henry = personFactory('jeff', 27);
   
 console.log(henry.name); // 'jeff'
   
@@ -55,14 +55,14 @@ const Player = (name, level) => {
 // Creation of 2 players using 'Player' Factory
 const jimmie = Player('jim', 10);
 const badGuy = Player('jeff', 5);
-jimmie.attack(badGuy);
+jimmie.attack(badGuy); // jim has damaged jeff
 
 
 // Inheritance w/ Factories (You decide what gets inherited) 
 const Person = (name) => {
     const sayName = () => console.log(`my name is ${name}`);
     const yellName = () => console.log(`MY NAME IS %s`, name.toUpperCase());
-    return {sayName};
+    return {sayName}; // I decide to return only 'sayName()'
 }
   
 const Nerd = (name) => {
