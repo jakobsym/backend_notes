@@ -75,7 +75,7 @@ async function addSync(x) {
 }
 
 addSync(5).then((sum) => {
-    console.log(sum); // >> (5 + 10 + 20 + 30) = 65
+    console.log(sum); // >> (10 + 20 + 40 + 60) = 130
 });
 
 
