@@ -1,4 +1,4 @@
-/* Example of a GET request using Axios (Promise based HTTP client)
+/* Example of a GET(get data from db) request using Axios (Promise based HTTP client)
     - Many ways to perform this task, depends on abstraction level you wish to use */
 
 const axios = require('axios');
@@ -44,7 +44,52 @@ req.on('error', error => {
 req.end();
 
 
-
-/* Example of a POST request using Axios (Promise based HTTP client)
+/* Example of a POST(create new resource(data) for db) request using Axios (Promise based HTTP client)
     - Many ways to perform this task, depends on abstraction level you wish to use */
+const https = require('https');
 
+axios
+    .post('https://jsonplaceholder.typicode.com/todos', {
+        todo: 'Go to the store',
+    })
+    .then(res => {
+        console.log(`Status Code: ${res.status}`);
+        console.log(res);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
+ /* POST request usine Node.js standard lib. */
+ const https = require('https');
+
+ const data = JSON.stringify({ // serialize JSON to so we can POST (JSON exists as string when transmitted)
+    todo: 'Go to the store',
+ });
+
+ const option = {
+    hostname: 'jsonplaceholder.typicode.com',
+    port: 443,
+    path: '/todos',
+    method: 'POST',
+    headers: {
+    'Content-Type': 'application/json',
+    'Content-Length': data.length,
+    },
+ };
+
+ const request = https.request(options, res => {
+     console.log(`Status Code: ${res.status}`);
+     res.on('data', d => {
+        process.stdout.write(d);
+     });
+ });
+
+ request.on('error', error => {
+    console.error(error);
+ });
+
+ request.write(data)
+ request.end();
+
+ // PUT and DELETE verbs use the same mechanics as above examples. Just make sure to change 'options.method' to the verb you wish to use
