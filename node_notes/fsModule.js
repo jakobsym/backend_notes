@@ -93,3 +93,33 @@ readWrite();
 */
 fs.writeFile('/Users/joe/test.txt', content, { flag: 'a+' }, err => {});
 
+/* (Not related to File System) Event Emitter 
+    - Node.js allows us to build events for the backend
+        - 'emit()' : is used to trigger an event
+            'on()' : is used to add a callback function that's going to be executed when the event is triggered
+*/
+// EXAMPLE:
+const EventEmitter = require('events');
+const eventEmitter = new EventEmitter(); 
+
+// 1
+eventEmitter.on('start', () => {
+    console.log("Started.");
+});
+
+eventEmitter.emit('start') // Started. 
+
+// 2
+eventEmitter.on('start', number => {
+    console.log(`started ${number}`);
+});
+
+eventEmitter.emit('start', 23); // started 23
+
+// 3
+eventEmitter.on('start', (start, end) => {
+    console.log(`started from ${start} to ${end}`);
+});
+  
+eventEmitter.emit('start', 1, 100); // started from 1 to 100
+// You can read all their details on the events module page at https://nodejs.org/api/events.html
